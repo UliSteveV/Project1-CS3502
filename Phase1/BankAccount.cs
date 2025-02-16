@@ -1,16 +1,20 @@
 class BankAccount{
     private object balancelock = new object();
-    public int Balance {get; private set;}
+    public double Balance {get;  set;}
 
     public BankAccount(int initialBalance){
         Balance = initialBalance;
     }
 
     public void Deposit(int amount){
+        
         lock(balancelock){
             Balance += amount;
             Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
         }
+        
+        Balance += amount;
+        Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
     }
 
     public void withdraw(int amount){
