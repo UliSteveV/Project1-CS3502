@@ -1,5 +1,6 @@
+
 class BankAccount{
-    private object balancelock = new object();
+    private readonly Mutex balancelock = new Mutex();
     public decimal Balance {get;  set;}
 
     public BankAccount(decimal initialBalance){
@@ -7,18 +8,22 @@ class BankAccount{
     }
 
     public void Deposit(decimal amount){
-        //lock to protect the balance variable
-        //don't know if this was required for phase
-        //however it did say to practice good thread safety so I
-        //included simple locks
-        lock(balancelock){
+        balancelock.WaitOne();
+        Console.WriteLine("Acquired Mutex");
+        try{
             Balance += amount;
             Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
+        }
+        finally{
+            balancelock.ReleaseMutex();
+            Console.WriteLine("Released Mutex");
         }
     }
 
     public void withdraw(decimal amount){
-        lock(balancelock){
+        balancelock.WaitOne();
+        Console.WriteLine("Acquired Mutex");
+        try{
             if(Balance >= amount){
                 Balance -= amount;
                 Console.WriteLine($"Withdrawn {amount}, balance is now {Balance}");
@@ -26,7 +31,10 @@ class BankAccount{
             else{
                 Console.WriteLine($"Sorry, not enough funds to withdraw {amount}");
             }
-            
+        }
+        finally{
+            balancelock.ReleaseMutex();
+            Console.WriteLine("Released Mutex");
         }
     }
 

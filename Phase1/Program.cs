@@ -4,10 +4,10 @@ using System.Threading;
 
 class Program {
     static void Main() {
-        BankAccount account = new BankAccount(100);
+        BankAccount account = new BankAccount(100.00m);
         List<Thread> threads = new List<Thread>();
         /*bool trueFalse = false;//used to keep the while loop running
-        int amount = 0;//used to take in the amount to deposit or withdraw
+        decimal amount = 0;//used to take in the amount to deposit or withdraw
         */
         Console.WriteLine($"Initial balance is {account.Balance}");
 
@@ -40,8 +40,8 @@ class Program {
         //used for testing
 
         for(int i = 0; i < 10; i++){
-            threads.Add(new Thread(() => account.Deposit(100)));
-            threads.Add(new Thread(() => account.withdraw(50)));
+            threads.Add(new Thread(() => account.Deposit(100.50m)));
+            threads.Add(new Thread(() => account.withdraw(50.25m)));
         }
 
         foreach(Thread thread in threads){
