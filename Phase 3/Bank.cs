@@ -7,7 +7,7 @@ class Bank{
             {
                 if(from.Withdraw(amount)){
                     to.Deposit(amount);
-                    Console.WriteLine();
+                    Console.WriteLine($"Transfer of {amount} from Account {from.Id} to Account {to.Id} complete");
                 }
             }
         }
