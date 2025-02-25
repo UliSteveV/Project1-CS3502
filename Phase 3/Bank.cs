@@ -12,4 +12,36 @@ class Bank{
             }
         }
     }
+
+    public static void transferWithDetection(BankAccount from, BankAccount to, decimal amount){
+        object firstLock = from.Id < to.Id ? from.GetLock() : to.GetLock();
+        object secondLock = from.Id < to.Id ? to.GetLock() : from.GetLock();
+
+        bool acquiredFirstLock = false, acquiredSecondLock = false;
+
+        try{
+            acquiredFirstLock = Monitor.TryEnter(firstLock);
+            if(!acquiredFirstLock){
+                Console.WriteLine("Failed to acquire first lock, aborting transfer");
+                return;
+            }
+
+            Thread.Sleep(100);
+
+            acquiredSecondLock = Monitor.TryEnter(secondLock);
+            if(!acquiredSecondLock){
+                Console.WriteLine("Failed to acquire second lock, aborting transfer");
+                return;
+            }
+
+            if(from.Withdraw(amount)){
+                to.Deposit(amount);
+                Console.WriteLine($"Transfer of {amount} from Account {from.Id} to Account {to.Id} complete");
+            }
+        }
+        finally{
+            if(acquiredFirstLock) Monitor.Exit(firstLock);
+            if(acquiredSecondLock) Monitor.Exit(secondLock);
+        }
+    }
 }
