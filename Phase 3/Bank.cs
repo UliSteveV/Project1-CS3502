@@ -14,8 +14,8 @@ class Bank{
     }
 
     public static void transferWithDetection(BankAccount from, BankAccount to, decimal amount){
-        object firstLock = from.Id < to.Id ? from.GetLock() : to.GetLock();
-        object secondLock = from.Id < to.Id ? to.GetLock() : from.GetLock();
+        object firstLock = from.GetLock();
+        object secondLock = to.GetLock();
 
         bool acquiredFirstLock = false, acquiredSecondLock = false;
 
@@ -25,6 +25,7 @@ class Bank{
                 Console.WriteLine("Failed to acquire first lock, aborting transfer");
                 return;
             }
+            
 
             Thread.Sleep(100);
 
