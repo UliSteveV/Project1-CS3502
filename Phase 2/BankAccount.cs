@@ -1,11 +1,23 @@
-
+/// <summary>
+/// BankAccount class
+/// </summary>
 class BankAccount{
     private readonly Mutex balancelock = new Mutex();
     public decimal Balance {get;  set;}
 
+    /// <summary>
+    /// Constructor for BankAccount
+    /// </summary>
+    /// <param name="initialBalance"></param>
     public BankAccount(decimal initialBalance){
         Balance = initialBalance;
     }
+
+    /// <summary>
+    ///  Deposit method for BankAccount
+    ///  Mutex is used to lock the balance
+    /// </summary>
+    /// <param name="amount"></param>
 
     public void Deposit(decimal amount){
         balancelock.WaitOne();
@@ -20,6 +32,11 @@ class BankAccount{
         }
     }
 
+    /// <summary>
+    /// Withdraw method for BankAccount
+    /// Mutex is used to lock the balance
+    /// </summary>
+    /// <param name="amount"></param>
     public void withdraw(decimal amount){
         balancelock.WaitOne();
         Console.WriteLine("Acquired Mutex");

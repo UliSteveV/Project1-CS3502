@@ -1,6 +1,12 @@
 class Bank{
     
-
+    /// <summary>
+    /// Transfer money from one account to another
+    /// Uses timeout to avoid deadlocks
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <param name="amount"></param>
     public static void transfer(BankAccount from, BankAccount to, decimal amount){
         //added lock ordering to avoid deadlock
         object firstLock = from.Id < to.Id ? from.GetLock() : to.GetLock();

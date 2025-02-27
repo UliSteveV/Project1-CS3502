@@ -1,4 +1,12 @@
 class Bank{
+
+    /// <summary>
+    /// Transfer money from one account to another
+    /// This method is not thread safe
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <param name="amount"></param>
     public static void Transfer(BankAccount from, BankAccount to, decimal amount){
         lock(from.GetLock())
         {
@@ -12,6 +20,13 @@ class Bank{
             }
         }
     }
+
+    /// <summary>
+    /// This method detects deadlocks and aborts the transfer if a deadlock is detected
+    /// </summary>
+    /// <param name="from"></param>
+    /// <param name="to"></param>
+    /// <param name="amount"></param>
 
     public static void transferWithDetection(BankAccount from, BankAccount to, decimal amount){
         object firstLock = from.GetLock();

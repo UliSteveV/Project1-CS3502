@@ -1,4 +1,4 @@
-﻿class Progtam
+﻿class Program
 {
     static void Main()
     {

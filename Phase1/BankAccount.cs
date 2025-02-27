@@ -2,21 +2,30 @@ class BankAccount{
     private object balancelock = new object();
     public decimal Balance {get;  set;}
 
+    /// <summary>
+    /// Constructor for BankAccount
+    /// </summary>
+    /// <param name="initialBalance"></param>
     public BankAccount(decimal initialBalance){
         Balance = initialBalance;
     }
 
+    /// <summary>
+    /// Deposit method for BankAccount
+    /// </summary>
+    /// <param name="amount"></param>
     public void Deposit(decimal amount){
-        //lock to protect the balance variable
-        //don't know if this was required for phase
-        //however it did say to practice good thread safety so I
-        //included simple locks
+        
         lock(balancelock){
             Balance += amount;
             Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
         }
     }
 
+    /// <summary>
+    /// Withdraw method for BankAccount
+    /// </summary>
+    /// <param name="amount"></param>
     public void withdraw(decimal amount){
         lock(balancelock){
             if(Balance >= amount){
