@@ -1,0 +1,15 @@
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/bin/Debug/net9.0/Phase 4
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/bin/Debug/net9.0/Phase 4.deps.json
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/bin/Debug/net9.0/Phase 4.runtimeconfig.json
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/bin/Debug/net9.0/Phase 4.dll
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/bin/Debug/net9.0/Phase 4.pdb
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.GeneratedMSBuildEditorConfig.editorconfig
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.AssemblyInfoInputs.cache
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.AssemblyInfo.cs
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.csproj.CoreCompileInputs.cache
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.sourcelink.json
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.dll
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/refint/Phase 4.dll
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.pdb
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/Phase 4.genruntimeconfig.cache
+/home/uvillago/Desktop/Project-CS3502/Project1-CS3502/Phase 4/obj/Debug/net9.0/ref/Phase 4.dll

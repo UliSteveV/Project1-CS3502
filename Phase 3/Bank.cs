@@ -18,7 +18,6 @@ class Bank{
         object secondLock = to.GetLock();
 
         bool acquiredFirstLock = false, acquiredSecondLock = false;
-
         try{
             acquiredFirstLock = Monitor.TryEnter(firstLock);
             if(!acquiredFirstLock){

@@ -39,7 +39,6 @@ class Program{
         */
         threads2.Add(new Thread(() => Bank.transferWithDetection(account3, account1, 1000m)));
         threads2.Add(new Thread(() => Bank.transferWithDetection(account1, account3, 2000m)));
-
         foreach(Thread t in threads2){
             t.Start();
         }
