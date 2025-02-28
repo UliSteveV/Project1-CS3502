@@ -1,5 +1,4 @@
 class BankAccount{
-    private object balancelock = new object();
     public decimal Balance {get;  set;}
 
     /// <summary>
@@ -15,11 +14,8 @@ class BankAccount{
     /// </summary>
     /// <param name="amount"></param>
     public void Deposit(decimal amount){
-        
-        lock(balancelock){
-            Balance += amount;
-            Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
-        }
+        Balance += amount;
+        Console.WriteLine($"Deposited {amount}, balance is now {Balance}");
     }
 
     /// <summary>
@@ -27,15 +23,12 @@ class BankAccount{
     /// </summary>
     /// <param name="amount"></param>
     public void withdraw(decimal amount){
-        lock(balancelock){
-            if(Balance >= amount){
-                Balance -= amount;
-                Console.WriteLine($"Withdrawn {amount}, balance is now {Balance}");
-            }
-            else{
-                Console.WriteLine($"Sorry, not enough funds to withdraw {amount}");
-            }
-            
+        if(Balance >= amount){
+            Balance -= amount;
+            Console.WriteLine($"Withdrawn {amount}, balance is now {Balance}");
+        }
+        else{
+            Console.WriteLine($"Sorry, not enough funds to withdraw {amount}");
         }
     }
 
